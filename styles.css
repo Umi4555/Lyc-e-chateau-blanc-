@@ -1,0 +1,168 @@
+:root {
+  --primary: #1C2331;           /* Deep midnight blue */
+  --secondary: #2C3E50;          /* Dark slate */
+  --accent: #FF6B6B;             /* Soft red */
+  --light: #F7F9FC;              /* Soft off-white */
+  --text: #FFFFFF;               /* White for contrast */
+  --gradient-1: linear-gradient(135deg, #2C3E50, #1C2331);
+  --gradient-2: linear-gradient(135deg, #FF6B6B, #FF4757);
+  --gradient-3: linear-gradient(135deg, #4ECDC4, #45B7D1);
+  --gradient-4: linear-gradient(135deg, #6A11CB, #2575FC);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.portal-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  perspective: 1000px;
+}
+
+.portal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: rotateX(10deg);
+}
+
+.portal-header h1 {
+  font-size: 3rem;
+  color: var(--accent);
+  text-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  letter-spacing: 1px;
+}
+
+.portal-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+.portal-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(10deg);
+  transition: all 0.5s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  min-height: 400px;
+}
+
+.portal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.05));
+  z-index: 1;
+}
+
+.portal-card:hover {
+  transform: scale(1.05) rotateX(0) rotateY(0);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-cantine {
+  background: var(--gradient-1);
+}
+
+.card-lycee {
+  background: var(--gradient-2);
+}
+
+.card-quiz {
+  background: var(--gradient-3);
+}
+
+.card-video {
+  background: var(--gradient-4);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: var(--text);
+}
+
+.card-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.card-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.card-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  align-self: flex-start;
+  transform: translateY(0);
+}
+
+.card-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portal-card {
+    transform: none;
+  }
+}

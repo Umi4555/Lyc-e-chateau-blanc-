@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coupon Réponse - Lycée Château Blanc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-background: #1C2331;
+      --dark-accent: #2C3E50;
+      --light-text: #F7F9FC;
+      --primary-highlight: #FF6B6B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--dark-background), var(--dark-accent));
+      color: var(--light-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .document-container {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 4px solid var(--primary-highlight);
+    }
+
+    .document-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .document-header h1 {
+      font-size: 2.5rem;
+      color: var(--light-text);
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .document-header p {
+      color: rgba(247, 249, 252, 0.7);
+      margin-top: 1rem;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 80vh;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      background: var(--primary-highlight);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 107, 107, 0.2);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      background: rgba(255, 107, 107, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <button class="back-button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+  
+  <div class="document-container">
+    <div class="document-header">
+      <h1>Coupon-Réponse</h1>
+      <p>Téléchargez les coupons-réponse en PDF pour vos demandes de stage.</p>
+    </div>
+    
+    <object class="pdf-viewer" type="application/pdf" data="/coupon reponse.pdf">
+      <p>Votre navigateur ne supporte pas l'affichage des PDF. 
+      <a href="/coupon reponse.pdf" download>Télécharger le document</a></p>
+    </object>
+    
+    <div class="action-buttons">
+      <a href="/coupon reponse.pdf" download class="btn">Télécharger</a>
+      <a href="/coupon reponse.pdf" target="_blank" 
+    </div>
+  </div>
+</body>
+</html>
